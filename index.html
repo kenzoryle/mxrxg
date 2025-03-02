@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your #1 Japanese Girl</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background: url('background.jpg') no-repeat center center/cover;
+            color: white;
+            position: relative;
+        }
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        .container {
+            position: relative;
+            z-index: 2;
+            padding: 60px 20px;
+        }
+        h1 {
+            font-weight: 600;
+            font-size: 28px;
+        }
+        .profile-img {
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 5px solid white;
+            margin-top: 20px;
+            box-shadow: 0 0 15px rgba(255, 64, 129, 0.6);
+        }
+        .info {
+            font-size: 20px;
+            margin-top: 15px;
+        }
+        .highlight {
+            color: #ff80ab;
+            font-weight: bold;
+        }
+        .button {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 14px 30px;
+            background: linear-gradient(135deg, #ff4081, #ff80ab);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 20px;
+            font-weight: bold;
+            transition: 0.3s;
+            box-shadow: 0 5px 15px rgba(255, 64, 129, 0.4);
+        }
+        .button:hover {
+            background: #e91e63;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay"></div>
+    <div class="container">
+        <h1>🔥 READ BELOW 🔥</h1>
+        <img src="julia.jpg" alt="Profile Image" class="profile-img">
+        <h2❤️ Your #1 Japanese Girl ❤️</h2>
+        <p class="info">📍 <span id="location">Finding your location...</span> • 18 years old • ♑ Capricorn</p>
+        <p class="info"><span class="highlight">🟢 ONLINE NOW</span></p>
+        <p>Finish a sexting set and WIN A FREE DATE with me! 🥂</p>
+        <p><strong>❗ Choosing somebody on March 4 ❗</strong></p>
+        <p>If you live around <span class="highlight" id="nearby-location">your area</span>, send me a DM!</p>
+        <a href="#" class="button">💖 CLICK HERE TO CHAT 💖</a>
+    </div>
+
+    <script>
+        function getLocation() {
+            fetch("https://ipapi.co/json/")
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById("location").innerText = data.city;
+                    document.getElementById("nearby-location").innerText = data.city;
+                })
+                .catch(() => {
+                    document.getElementById("location").innerText = "Unknown";
+                    document.getElementById("nearby-location").innerText = "your area";
+                });
+        }
+        getLocation();
+    </script>
+</body>
+</html>
